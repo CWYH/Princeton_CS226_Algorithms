@@ -16,6 +16,7 @@
  */
 
 import java.util.*;
+import edu.princeton.cs.algs4.*;
 
 public class Deque<Item> implements Iterable<Item> {
 
@@ -105,7 +106,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     private class DequeIterator implements Iterator<Item>{
         private Node current = first;
-        public boolean hasNext() { return first != null; }
+        public boolean hasNext() { return current != null; }
         public void remove() { throw new UnsupportedOperationException(); }
         public Item next() {
             if (!hasNext()) throw new NoSuchElementException();
@@ -117,17 +118,7 @@ public class Deque<Item> implements Iterable<Item> {
 
     // unit testing (optional)
     public static void main(String[] args) {
-        Deque<String> deque = new Deque<String>();
-        while (!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if (!item.equals("-")) {
-                deque.addFirst(item);
-            }
-            else if (!deque.isEmpty()) {
-                StdOut.print(deque.removeLast() + " ");
-                StdOut.println("(" + deque.size() + " left on deque )");
-            }
-        }
-        StdOut.println("(" + deque.size() + " left on queue)");
+
     }
+
 }
